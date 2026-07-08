@@ -1,4 +1,4 @@
-const KASA = 'dbf-v1';
+const KASA = 'dbf-v2';
 const CEKIRDEK = ['./','index.html','en.html','style.css','app.js','logo-lacivert.png','logo-beyaz.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(KASA).then(c => c.addAll(CEKIRDEK)));
