@@ -1,0 +1,62 @@
+DBF NAKLİYAT — SİTE DÜZENLEME REHBERİ
+=====================================
+
+Bu site tek bir index.html dosyası + görsellerden oluşur.
+Herhangi bir programa gerek yok; Not Defteri (Notepad) yeterli.
+
+1) METİN DEĞİŞTİRME
+-------------------
+- index.html dosyasına sağ tıkla > Birlikte Aç > Not Defteri.
+- Ctrl+F ile değiştirmek istediğin cümleyi bul, yenisini yaz, kaydet.
+- Dosyada "✏️ DÜZENLE" yazan yorum satırları, en sık değişecek yerleri işaretler.
+
+2) TELEFON / E-POSTA DEĞİŞTİRME
+-------------------------------
+- Telefon her yerde iki biçimde geçer: "+905300949325" (linklerde) ve
+  "0530 094 93 25" (görünen yazı). İkisini de Ctrl+H (değiştir) ile güncelle.
+- E-postalar: info@dbfnakliyat.com ve burakhan.durmaz@dbfnakliyat.com
+
+3) FOTOĞRAF DEĞİŞTİRME / EKLEME
+-------------------------------
+- Yeni fotoğrafı aynı isimle kaydedersen (örn. arac-kapali-kasa.jpg)
+  hiçbir kod değişikliği gerekmez; sadece GitHub'a yükle, eskisinin yerine geçer.
+- Yeni bir galeri kartı eklemek için: index.html içinde
+  "✏️ DÜZENLE: Yeni fotoğraf eklemek" yorumunun altındaki <div class="arac">...</div>
+  bloğunu kopyala, src ve yazıları değiştir.
+- Fotoğraflar en fazla ~1200px genişlikte ve .jpg olursa site hızlı kalır.
+
+4) DEĞİŞİKLİĞİ YAYINA ALMA (GitHub)
+-----------------------------------
+1. github.com > dbfnakliyat deposunu aç.
+2. "Add file" > "Upload files".
+3. Değişen dosyaları sürükle-bırak (aynı isimli dosya otomatik güncellenir).
+4. "Commit changes" butonuna bas.
+5. 1-2 dakika sonra site güncellenir. Görmüyorsan Ctrl+Shift+R ile yenile.
+
+5) E-POSTA NOTU
+---------------
+info@dbfnakliyat.com adresinin çalışması için alan adını aldıktan sonra
+bir e-posta servisi kurulmalıdır (örn. Google Workspace, Yandex 360
+veya alan adı firmasının e-posta paketi). Kurulana kadar bu adrese
+gelen mailler ulaşmaz; şimdilik burakhan.durmaz@... adresi ana adresindir.
+
+6) YARDIM
+---------
+Takıldığın her noktada bu sohbete dön; dosyayı birlikte güncelleriz.
+
+
+7) YENİ ÖZELLİKLER (v3)
+-----------------------
+- Karanlık mod: Sağ üstteki ay/güneş düğmesi. Tercih tarayıcıda hatırlanır.
+- Mesafe hesaplayıcı: Hızlı Teklif kartına il yazınca km ve süre tahmini çıkar.
+  (Veriler app.js içindedir; tamamen site içinde çalışır, dış servis yok.)
+- Telefona kurulum (PWA): Telefonda tarayıcı menüsünden "Ana ekrana ekle"
+  denince site uygulama gibi kurulur.
+- İngilizce sayfa: en.html — menüdeki "EN" düğmesinden geçilir.
+- Stil artık style.css, ortak kodlar app.js dosyasındadır; metinler yine
+  index.html / en.html içindedir.
+
+8) 404 SAYFASI
+--------------
+- 404.html: Olmayan bir adrese girenlere otomatik gösterilir (GitHub Pages özelliği).
+  Metnini istediğin gibi değiştirebilirsin; ayar gerektirmez.

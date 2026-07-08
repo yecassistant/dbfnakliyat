@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayfa Bulunamadı — DBF Nakliyat</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lacivert:#0B2447;
+    --mavi:#1D5BBF;
+    --cizgi:rgba(157,180,214,.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Inter',sans-serif;
+    background:
+      radial-gradient(1100px 520px at 78% -10%, rgba(29,91,191,.28), transparent 60%),
+      var(--lacivert);
+    color:#C7D4E8;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    padding:32px 22px;
+    line-height:1.6;
+  }
+  .kutu{max-width:640px;text-align:center}
+  .logo{height:52px;width:auto;margin:0 auto 42px;display:block}
+  .kod{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:#9DC0F2;margin-bottom:14px;
+  }
+  h1{
+    font-family:'Schibsted Grotesk',sans-serif;
+    color:#fff;font-size:clamp(30px,5.4vw,46px);
+    line-height:1.12;letter-spacing:-.01em;margin-bottom:16px;
+  }
+  p{max-width:46ch;margin:0 auto 34px;font-size:16.5px}
+
+  /* imza: kopmuş rota çizgisi */
+  .rota{display:flex;align-items:center;gap:12px;color:#9DB4D6;margin:0 auto 40px;max-width:460px}
+  .rota .mono{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+  .rota .hat{flex:1;height:2px;position:relative;background:linear-gradient(90deg,rgba(157,180,214,.9) 0%,rgba(157,180,214,.9) 55%,transparent 55%)}
+  .rota .hat::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:#9DC0F2}
+  .rota .hat::after{
+    content:"?";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    font-family:'IBM Plex Mono',monospace;font-size:15px;color:#F2C230;
+    width:26px;height:26px;border:2px dashed rgba(242,194,48,.7);border-radius:50%;
+    display:grid;place-items:center;background:rgba(11,36,71,.6);
+  }
+
+  .btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:600;font-size:15.5px;padding:14px 26px;border-radius:10px;
+    text-decoration:none;transition:transform .15s,background .15s,border-color .15s;
+    border:1.5px solid transparent;color:#fff;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-mavi{background:var(--mavi)}
+  .btn-mavi:hover{background:#2C6BD1}
+  .btn-cerceve{border-color:rgba(255,255,255,.45)}
+  .btn-cerceve:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+  .en{margin-top:38px;font-size:13px;color:#7A8FB4}
+  .en a{color:#9DC0F2}
+  @media(prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+</style>
+</head>
+<body>
+  <div class="kutu">
+    <img class="logo" src="logo-beyaz.png" alt="DBF Nakliyat">
+    <div class="kod">Hata 404 — Rota Bulunamadı</div>
+    <h1>Bu adres bizim güzergâhta yok.</h1>
+    <p>Aradığınız sayfa taşınmış ya da hiç var olmamış olabilir. Merak etmeyin — yükler bizde asla kaybolmaz, ama bu sayfa kaybolmuş. Sizi ana sayfaya götürelim.</p>
+
+    <div class="rota" aria-hidden="true">
+      <span class="mono">Ana Sayfa</span>
+      <div class="hat"></div>
+      <span class="mono">Bu Sayfa</span>
+    </div>
+
+    <div class="btns">
+      <a class="btn btn-mavi" href="/dbfnakliyat/">Ana Sayfaya Dön</a>
+      <a class="btn btn-cerceve" href="tel:+905300949325">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0530 094 93 25
+      </a>
+    </div>
+
+    <p class="en">Page not found. <a href="/dbfnakliyat/en.html">Go to homepage (EN)</a></p>
+  </div>
+
+<script>
+/* Alan adı bağlanınca da, GitHub alt klasöründe de doğru ana sayfaya götür */
+(function(){
+  var kok = location.pathname.indexOf('/dbfnakliyat/') === 0 ? '/dbfnakliyat/' : '/';
+  document.querySelectorAll('a[href^="/dbfnakliyat/"]').forEach(function(a){
+    a.setAttribute('href', a.getAttribute('href').replace('/dbfnakliyat/', kok));
+  });
+})();
+</script>
+</body>
+</html>
