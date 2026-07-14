@@ -426,3 +426,21 @@
   [data-tema="koyu"] .dil-rozet{color:#E9F0FB;border-color:var(--cizgi)}
   @media(min-width:961px){.dil-rozet{display:none}}  /* masaüstünde menüdeki EN yeterli */
   @media(max-width:960px){.nav{gap:12px}}
+
+  /* ---------- POPÜLER GÜZERGÂHLAR ---------- */
+  .guzergah{padding-top:0}
+  .rota-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .rota-kart{
+    display:flex;flex-direction:column;gap:5px;
+    border:1px solid var(--cizgi);border-radius:10px;
+    background:#fff;padding:15px 17px;
+    transition:border-color .15s,transform .15s,box-shadow .15s;
+  }
+  .rota-kart .mono{font-size:13px;color:var(--lacivert);font-weight:600;letter-spacing:.02em}
+  .rota-kart small{color:var(--gri);font-size:12px}
+  .rota-kart:hover{border-color:var(--mavi);transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,36,71,.08)}
+  .seo-metin{margin-top:28px;color:var(--gri);font-size:14.5px;line-height:1.75;max-width:920px}
+  [data-tema="koyu"] .rota-kart{background:#101F39;border-color:var(--cizgi)}
+  [data-tema="koyu"] .rota-kart .mono{color:#E9F0FB}
+  @media(max-width:960px){.rota-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.rota-grid{grid-template-columns:repeat(2,1fr)}}
