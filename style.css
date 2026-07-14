@@ -282,6 +282,7 @@
   .menu .dil:hover{border-color:var(--mavi)}
   .logo .l-koyu{display:none}
   .mesafe{display:flex;align-items:center;gap:9px;background:var(--mavi-acik);color:var(--lacivert);border:1px solid var(--cizgi);border-radius:9px;padding:10px 13px;font-size:13.5px;font-weight:600;margin:-2px 0 13px}
+  .mesafe[hidden]{display:none}
   .mesafe svg{flex-shrink:0;color:var(--mavi)}
   .mesafe .mono{color:var(--mavi)}
 
