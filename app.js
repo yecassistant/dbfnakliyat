@@ -225,3 +225,33 @@ document.addEventListener('DOMContentLoaded', function(){
     guncelle();
   }
 });
+
+
+/* ---------- v4.1: mobilde WhatsApp'a doğrudan geçiş + Instagram kaynağı ---------- */
+var MOBIL = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+(function(){
+  /* Instagram reklamından / uygulamasından gelen ziyaretçiyi işaretle */
+  var q = location.search.toLowerCase();
+  if(/utm_source=(ig|instagram)|[?&]k=ig(&|$)/.test(q) || /Instagram/i.test(navigator.userAgent)){
+    try{ sessionStorage.setItem('dbf-kaynak', 'ig'); }catch(e){}
+  }
+})();
+function igdenMi(){ try{ return sessionStorage.getItem('dbf-kaynak') === 'ig'; }catch(e){ return false; } }
+function waAdres(mesaj){
+  if(igdenMi()) mesaj += '\n(Instagram üzerinden)';
+  return 'https://wa.me/905300949325?text=' + encodeURIComponent(mesaj);
+}
+/* formlardan WhatsApp'a: telefonda aynı sekmede aç (uygulama içi tarayıcılar yeni pencereyi engelleyebiliyor) */
+function waAc(mesaj){
+  var u = waAdres(mesaj);
+  if(MOBIL){ location.href = u; } else { window.open(u, '_blank'); }
+}
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a){
+    if(MOBIL) a.removeAttribute('target');
+    if(igdenMi()){
+      var p = a.href.split('?text=');
+      if(p.length === 2){ try{ a.href = waAdres(decodeURIComponent(p[1])); }catch(e){} }
+    }
+  });
+});

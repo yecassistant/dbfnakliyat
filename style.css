@@ -582,3 +582,19 @@
     .btn-mavi::after,.btn-wa::after,.nav .cta::after{display:none}
     .ilerleme{display:none}
   }
+
+
+  /* =====================================================================
+     v4.1 — MOBİL: WhatsApp öncelikli
+     ===================================================================== */
+  .altbar .in{grid-template-columns:1.5fr 1fr}
+  .altbar .wa{order:-1}
+  @media(max-width:560px){
+    .topbar a[href^="mailto"]{display:none}
+    .topbar .in{justify-content:center;padding:7px 16px}
+    .hero .wrap{padding-top:44px}
+    .hero .btns,.alt-hero .btns{flex-direction:column}
+    .hero .btns .btn,.alt-hero .btns .btn{width:100%;justify-content:center;padding:16px 20px;font-size:17px}
+    .rota{display:none}
+    .alt-hero .wrap{padding-top:44px;padding-bottom:52px}
+  }
