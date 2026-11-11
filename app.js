@@ -185,3 +185,43 @@ function menuKapat(){
   if(b) b.classList.remove('acik');
 }
 document.addEventListener('DOMContentLoaded', temaSenkron);
+
+
+/* ---------- v4: sıralı belirme + kaydırma ilerleme çubuğu ---------- */
+document.addEventListener('DOMContentLoaded', function(){
+  var azalt = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* aynı satırdaki kartlar sırayla gelsin */
+  if(!azalt && 'IntersectionObserver' in window){
+    var sayac = new Map();
+    document.querySelectorAll('.reveal').forEach(function(o){
+      var p = o.parentElement, i = sayac.get(p) || 0;
+      sayac.set(p, i + 1);
+      o.style.setProperty('--gecikme', (Math.min(i, 7) * 85) + 'ms');
+    });
+    var temizle = new IntersectionObserver(function(g){
+      g.forEach(function(x){
+        if(!x.isIntersecting) return;
+        temizle.unobserve(x.target);
+        /* belirme bitince gecikmeyi kaldır: hover efektleri anında çalışsın */
+        setTimeout(function(){ x.target.style.removeProperty('--gecikme'); }, 1700);
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(o){ temizle.observe(o); });
+  }
+
+  /* üstteki ince ilerleme çubuğu */
+  var cubuk = document.getElementById('ilerleme');
+  if(cubuk && !azalt){
+    var bekliyor = false;
+    var guncelle = function(){
+      bekliyor = false;
+      var d = document.documentElement, toplam = d.scrollHeight - d.clientHeight;
+      cubuk.style.transform = 'scaleX(' + (toplam > 0 ? Math.min(1, d.scrollTop / toplam) : 0) + ')';
+    };
+    window.addEventListener('scroll', function(){
+      if(!bekliyor){ bekliyor = true; requestAnimationFrame(guncelle); }
+    }, {passive:true});
+    guncelle();
+  }
+});

@@ -60,3 +60,13 @@ Takıldığın her noktada bu sohbete dön; dosyayı birlikte güncelleriz.
 --------------
 - 404.html: Olmayan bir adrese girenlere otomatik gösterilir (GitHub Pages özelliği).
   Metnini istediğin gibi değiştirebilirsin; ayar gerektirmez.
+
+9) v4 — İSTANBUL / BEYLİKDÜZÜ SEO + ANİMASYONLAR (Kasım 2026)
+-------------------------------------------------------------
+- Yeni sayfalar: beylikduzu-nakliyat.html, esenyurt-nakliyat.html,
+  istanbul-sehirler-arasi-nakliyat.html (metinleri dosyanın içinden düzenlenir).
+- Ana sayfada "İstanbul Hizmet Bölgeleri" bölümü ve kayan ilçe şeridi eklendi.
+  İlçe eklemek/çıkarmak için index.html içinde "serit-grup" ve "ilce-liste"
+  bölümlerindeki isimleri değiştir.
+- Animasyonlar style.css sonundaki "v4" bloğundadır.
+- sitemap_1.xml artık kullanılmıyor; GitHub'dan silebilirsin.

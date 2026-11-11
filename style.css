@@ -445,3 +445,140 @@
   [data-tema="koyu"] .rota-kart .mono{color:#E9F0FB}
   @media(max-width:960px){.rota-grid{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:640px){.rota-grid{grid-template-columns:repeat(2,1fr)}}
+
+
+  /* =====================================================================
+     v4 — BELİRGİN ANİMASYONLAR + İSTANBUL BÖLGE BÖLÜMLERİ
+     ===================================================================== */
+
+  /* ---- kaydırma ilerleme çubuğu ---- */
+  .ilerleme{position:fixed;top:0;left:0;right:0;height:3px;z-index:200;pointer-events:none;
+    background:linear-gradient(90deg,var(--mavi),#6FA5F5);transform:scaleX(0);transform-origin:0 50%}
+
+  /* ---- hero: açılış sahnesi ---- */
+  @keyframes yuksel{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  @keyframes sagdan{from{opacity:0;transform:translateX(46px) scale(.96)}to{opacity:1;transform:none}}
+  @keyframes kenburns{from{transform:scale(1.14) translateX(-1.5%)}to{transform:scale(1.02) translateX(0)}}
+  .hero .bg{animation:kenburns 24s ease-in-out infinite alternate;will-change:transform}
+  .hero .wrap > div:first-child > *{animation:yuksel .85s cubic-bezier(.2,.7,.2,1) both}
+  .hero .wrap > div:first-child > :nth-child(1){animation-delay:.10s}
+  .hero .wrap > div:first-child > :nth-child(2){animation-delay:.22s}
+  .hero .wrap > div:first-child > :nth-child(3){animation-delay:.36s}
+  .hero .wrap > div:first-child > :nth-child(4){animation-delay:.50s}
+  .hero .wrap > div:first-child > :nth-child(5){animation-delay:.66s}
+  .hero .teklif-kart{animation:sagdan .95s .40s cubic-bezier(.2,.7,.2,1) both}
+
+  /* ---- hero: rota hattında giden araç ---- */
+  @keyframes hatciz{from{background-size:0% 100%}to{background-size:100% 100%}}
+  @keyframes tirgit{0%{left:0;opacity:0}6%{opacity:1}90%{opacity:1}100%{left:calc(100% - 22px);opacity:0}}
+  .rota .hat{background:linear-gradient(90deg,rgba(157,180,214,.9),rgba(157,180,214,.25)) no-repeat left/100% 100%;
+    animation:hatciz 1.4s .9s cubic-bezier(.3,.6,.2,1) both}
+  .rota .tir{position:absolute;top:-25px;left:0;color:#fff;line-height:0;opacity:0;
+    animation:tirgit 6.5s 2.1s cubic-bezier(.45,.05,.4,1) infinite}
+
+  /* ---- kaydırınca beliren öğeler: daha güçlü + sıralı ---- */
+  .reveal{opacity:0;transform:translateY(34px) scale(.98);
+    transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--gecikme,0ms)}
+  @media(min-width:961px){
+    .k-metin.reveal{transform:translateX(-44px)}
+    .k-foto.reveal{transform:translateX(44px)}
+  }
+  .reveal.gorunur{opacity:1;transform:none}
+  .baslik.reveal .eyebrow::before{width:0;transition:width .7s .3s cubic-bezier(.2,.7,.2,1)}
+  .baslik.reveal.gorunur .eyebrow::before{width:26px}
+
+  /* ---- kart etkileşimleri ---- */
+  .hizmet .ikon{transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .25s,color .25s}
+  .hizmet:hover .ikon{transform:rotate(-7deg) scale(1.12);background:var(--mavi);color:#fff}
+  .arac img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .arac:hover img{transform:scale(1.07)}
+  .k-foto{overflow:hidden}
+  .btn-mavi,.btn-wa,.nav .cta{position:relative;overflow:hidden}
+  .btn-mavi::after,.btn-wa::after,.nav .cta::after{content:"";position:absolute;top:0;bottom:0;left:-70%;width:45%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-18deg);
+    transition:left .6s ease;pointer-events:none}
+  .btn-mavi:hover::after,.btn-wa:hover::after,.nav .cta:hover::after{left:125%}
+  @keyframes nabiz{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+  .fab::after{content:"";position:absolute;inset:0;border-radius:50%;animation:nabiz 2.6s ease-out infinite;pointer-events:none}
+  .rota-kart .mono{transition:transform .2s,color .2s}
+  .rota-kart:hover .mono{transform:translateX(4px);color:var(--mavi)}
+
+  /* ---- kayan bölge şeridi ---- */
+  @keyframes kay{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .serit{background:var(--lacivert);color:#fff;overflow:hidden;padding:17px 0;
+    border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+  .serit-ic{display:flex;width:max-content;animation:kay 44s linear infinite}
+  .serit:hover .serit-ic{animation-play-state:paused}
+  .serit-grup{display:flex;align-items:center;flex-shrink:0}
+  .serit-grup span{font-family:'IBM Plex Mono',monospace;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;padding:0 22px;color:#DCE6F6}
+  .serit-grup i{width:6px;height:6px;border-radius:50%;background:#6FA5F5;flex-shrink:0}
+  [data-tema="koyu"] .serit{background:#0D1830}
+
+  /* ---- İstanbul hizmet bölgeleri ---- */
+  .bolge{padding-top:0}
+  .bolge-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bolge-kart{position:relative;display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--cizgi);
+    border-radius:var(--r);padding:26px 24px 22px;overflow:hidden;
+    transition:transform .2s,box-shadow .2s,border-color .2s}
+  .bolge-kart::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--mavi);
+    transform:scaleY(0);transform-origin:50% 100%;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .bolge-kart:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(11,36,71,.10);border-color:#C4D4EE}
+  .bolge-kart:hover::before{transform:scaleY(1)}
+  .bolge-kart .mono{color:var(--mavi)}
+  .bolge-kart h3{font-size:19px}
+  .bolge-kart p{font-size:14.5px;color:var(--gri);flex:1}
+  .bolge-kart .git{display:inline-flex;align-items:center;gap:7px;font-weight:600;font-size:14.5px;color:var(--mavi);margin-top:6px}
+  .bolge-kart .git svg{transition:transform .2s}
+  .bolge-kart:hover .git svg{transform:translateX(5px)}
+  .ilce-liste{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:26px}
+  .ilce-liste .mono{color:var(--gri);margin-right:8px}
+  [data-tema="koyu"] .bolge-kart{background:#101F39;border-color:var(--cizgi)}
+  @media(max-width:900px){.bolge-grid{grid-template-columns:1fr}}
+
+  /* ---- bölge (alt) sayfaları ---- */
+  .alt-hero{position:relative;color:#fff;background:var(--lacivert);overflow:hidden}
+  .alt-hero .bg{position:absolute;inset:0;background:center/cover no-repeat;animation:kenburns 24s ease-in-out infinite alternate}
+  .alt-hero .ort{position:absolute;inset:0;background:linear-gradient(94deg,rgba(6,17,38,.93) 0%,rgba(6,17,38,.78) 55%,rgba(6,17,38,.42) 100%)}
+  .alt-hero .wrap{position:relative;z-index:2;padding-top:64px;padding-bottom:72px}
+  .alt-hero .wrap > *{animation:yuksel .85s cubic-bezier(.2,.7,.2,1) both}
+  .alt-hero .wrap > :nth-child(2){animation-delay:.12s}
+  .alt-hero .wrap > :nth-child(3){animation-delay:.26s}
+  .alt-hero .wrap > :nth-child(4){animation-delay:.40s}
+  .ekmek{font-size:13px;color:#9DB4D6;margin-bottom:22px;display:flex;gap:8px;flex-wrap:wrap}
+  .ekmek a{color:#C7D4E8;text-decoration:underline;text-underline-offset:3px}
+  .alt-hero h1{color:#fff;font-size:clamp(30px,4.2vw,46px);max-width:22ch;margin-bottom:16px}
+  .alt-hero p{color:#C7D4E8;font-size:17px;max-width:60ch;margin-bottom:28px}
+  .alt-hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .alt-icerik{display:grid;grid-template-columns:1.6fr .9fr;gap:48px;align-items:start}
+  .alt-icerik h2{font-size:clamp(21px,2.6vw,27px);margin:38px 0 12px}
+  .alt-icerik h2:first-child{margin-top:0}
+  .alt-icerik p{color:var(--gri);margin-bottom:14px}
+  .alt-icerik ul.tik{list-style:none;display:grid;gap:10px;margin:6px 0 16px}
+  .alt-icerik ul.tik li{position:relative;padding-left:28px;color:var(--metin)}
+  .alt-icerik ul.tik li::before{content:"";position:absolute;left:2px;top:8px;width:14px;height:8px;
+    border-left:2.5px solid var(--mavi);border-bottom:2.5px solid var(--mavi);transform:rotate(-45deg)}
+  .alt-icerik .chipler{display:flex;gap:9px;flex-wrap:wrap;margin:8px 0 6px}
+  .yan-kart{position:sticky;top:96px;background:var(--zemin-soft);border:1px solid var(--cizgi);border-radius:16px;padding:26px 24px}
+  .yan-kart .mono{color:var(--mavi);display:block;margin-bottom:8px}
+  .yan-kart h3{font-size:20px;margin-bottom:8px}
+  .yan-kart p{font-size:14.5px;color:var(--gri);margin-bottom:18px}
+  .yan-kart .btn{width:100%;justify-content:center;margin-bottom:10px}
+  .yan-kart .btn-cerceve{color:var(--lacivert);border-color:var(--cizgi)}
+  .yan-kart .adres{font-size:13.5px;color:var(--gri);margin-top:12px;padding-top:14px;border-top:1px solid var(--cizgi)}
+  [data-tema="koyu"] .yan-kart{background:#101F39;border-color:var(--cizgi)}
+  [data-tema="koyu"] .yan-kart .btn-cerceve{color:#E9F0FB}
+  .diger-bolge{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  @media(max-width:900px){.alt-icerik{grid-template-columns:1fr;gap:34px}.yan-kart{position:static}.diger-bolge{grid-template-columns:1fr}}
+
+  /* ---- hareket azaltma tercihi ---- */
+  @media(prefers-reduced-motion:reduce){
+    .hero .bg,.alt-hero .bg,.hero .wrap > div:first-child > *,.hero .teklif-kart,.alt-hero .wrap > *,
+    .rota .hat,.serit-ic,.fab::after{animation:none}
+    .rota .tir{animation:none;opacity:1;left:calc(50% - 11px)}
+    .reveal,.k-metin.reveal,.k-foto.reveal{opacity:1;transform:none;transition:none}
+    .baslik.reveal .eyebrow::before{width:26px;transition:none}
+    .arac:hover img,.hizmet:hover .ikon,.bolge-kart:hover{transform:none}
+    .btn-mavi::after,.btn-wa::after,.nav .cta::after{display:none}
+    .ilerleme{display:none}
+  }
